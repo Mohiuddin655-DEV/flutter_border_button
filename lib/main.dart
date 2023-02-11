@@ -52,6 +52,7 @@ class Home extends StatelessWidget {
               borderSize: 2,
               margin: const EdgeInsets.all(12),
               iconPadding: const EdgeInsets.only(left: 16),
+              splashColor: Colors.amber.shade200,
               textState: (state) {
                 if (state == ButtonState.disabled) {
                   return "Disabled";
@@ -89,6 +90,7 @@ class Home extends StatelessWidget {
               borderSize: 2,
               margin: const EdgeInsets.all(12),
               iconPadding: const EdgeInsets.only(left: 16),
+              splashColor: Colors.amber.shade200,
               textState: (state) {
                 if (state == ButtonState.disabled) {
                   return "Disabled";
@@ -130,6 +132,7 @@ class Home extends StatelessWidget {
                     borderSize: 5,
                     margin: const EdgeInsets.all(12),
                     padding: const EdgeInsets.all(16),
+                    splashColor: Colors.amber.shade200,
                     iconState: (state) {
                       if (state == ButtonState.disabled) {
                         return Icons.near_me_disabled;
@@ -159,6 +162,7 @@ class Home extends StatelessWidget {
                     borderSize: 5,
                     margin: const EdgeInsets.all(12),
                     padding: const EdgeInsets.all(16),
+                    splashColor: Colors.amber.shade200,
                     iconState: (state) {
                       if (state == ButtonState.disabled) {
                         return Icons.near_me_disabled;

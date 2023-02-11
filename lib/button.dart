@@ -15,12 +15,12 @@ class BorderButton extends StatefulWidget {
   final bool expended;
   final EdgeInsetsGeometry? iconPadding;
   final IconAlignment iconAlignment;
+  final Color? splashColor;
 
   final String? Function(ButtonState state)? textState;
   final IconData? Function(ButtonState state)? iconState;
   final Color? Function(ButtonState state)? colorState;
   final Color? Function(ButtonState state)? borderColorState;
-  final Color? Function(ButtonState state)? splashState;
 
   const BorderButton({
     super.key,
@@ -44,7 +44,7 @@ class BorderButton extends StatefulWidget {
     this.iconState,
     this.colorState,
     this.borderColorState,
-    this.splashState,
+    this.splashColor,
   });
 
   @override
@@ -60,7 +60,6 @@ class _BorderButtonState extends State<BorderButton> {
         : Colors.grey.shade400;
     final color = widget.colorState?.call(state) ?? c;
     final border = widget.borderColorState?.call(state) ?? color;
-    final splash = widget.splashState?.call(state);
 
     return Container(
       margin: widget.margin,
@@ -69,9 +68,10 @@ class _BorderButtonState extends State<BorderButton> {
         clipBehavior: Clip.antiAlias,
         borderRadius: BorderRadius.circular(widget.borderRadius),
         child: InkWell(
-          highlightColor: splash?.withOpacity(0.5),
+          highlightColor:
+              widget.splashColor?.withOpacity(0.5) ?? Colors.transparent,
           onTap: widget.enabled ? widget.onClick : null,
-          splashColor: splash,
+          splashColor: widget.splashColor ?? Colors.transparent,
           child: AbsorbPointer(
             child: Container(
               width: widget.width,
